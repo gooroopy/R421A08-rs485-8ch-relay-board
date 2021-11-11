@@ -302,6 +302,7 @@ class Modbus(object):
 
         # Read response with timeout
         try:
+            local_echo = self._ser.read(len(self._tx_data))
             if rx_length:
                 rx_data = self._ser.read(rx_length)
             else:
