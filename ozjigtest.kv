@@ -1,0 +1,122 @@
+
+# Relay Board 1
+# Relay 1 ~ 4 is the Load Control  N/O so will need to close the Relay to turn on the load
+# Relay 5 ~ 8 Pumps N/O so will need to close for default so the pumps can turn on and off from Ozone
+# Relay 9 ~ 12 CS1 N/O
+# Relay 13 ~ 16 Tubes N/O so will need to close for default so the pumps can turn on and off from Ozone
+# Relay Board 2
+# Relay 1 ~ 4 is N/O CS2
+# Relay 5 ~ 8 is Reset buttons
+
+<Label>:
+    font_size: sp(24)
+
+BoxLayout:
+    orientation: 'vertical'
+    BoxLayout:
+        Label:
+            text: 'Channel'
+        Label:
+            text: 'Load'
+        Label:
+            text: 'CSI-1'
+        Label:
+            text: 'CSI-2'
+        Label:
+            text: 'Pump'
+        Label:
+            text: 'Tube'
+        Label:
+            text: 'Button'
+    BoxLayout:
+        spacing: 10
+        padding: 5
+        Label:
+            text: '1'
+        ToggleButton:
+            state: 'down' if app.relays1[0] else 'normal'
+            on_state: app.state_change(0, 0, self.state)
+        ToggleButton:
+            state: 'down' if app.relays1[8] else 'normal'
+            on_state: app.state_change(0, 8, self.state)
+        ToggleButton:
+            state: 'down' if app.relays2[0] else 'normal'
+            on_state: app.state_change(1, 0, self.state)
+        ToggleButton:
+            state: 'down' if app.relays1[4] else 'normal'
+            on_state: app.state_change(0, 4, self.state)
+        ToggleButton:
+            state: 'down' if app.relays1[12] else 'normal'
+            on_state: app.state_change(0, 12, self.state)
+        ToggleButton:
+            state: 'down' if app.relays2[4] else 'normal'
+            on_state: app.state_change(1, 4, self.state)
+    BoxLayout:
+        spacing: 10
+        padding: 5
+        Label:
+            text: '2'
+        ToggleButton:
+            state: 'down' if app.relays1[1] else 'normal'
+            on_state: app.state_change(0, 1, self.state)
+        ToggleButton:
+            state: 'down' if app.relays1[9] else 'normal'
+            on_state: app.state_change(0, 9, self.state)
+        ToggleButton:
+            state: 'down' if app.relays2[1] else 'normal'
+            on_state: app.state_change(1, 1, self.state)
+        ToggleButton:
+            state: 'down' if app.relays1[5] else 'normal'
+            on_state: app.state_change(0, 5, self.state)
+        ToggleButton:
+            state: 'down' if app.relays1[13] else 'normal'
+            on_state: app.state_change(0, 13, self.state)
+        ToggleButton:
+            state: 'down' if app.relays2[5] else 'normal'
+            on_state: app.state_change(1, 5, self.state)
+    BoxLayout:
+        spacing: 10
+        padding: 5
+        Label:
+            text: '3'
+        ToggleButton:
+            state: 'down' if app.relays1[2] else 'normal'
+            on_state: app.state_change(0, 2, self.state)
+        ToggleButton:
+            state: 'down' if app.relays1[10] else 'normal'
+            on_state: app.state_change(0, 10, self.state)
+        ToggleButton:
+            state: 'down' if app.relays2[2] else 'normal'
+            on_state: app.state_change(1, 2, self.state)
+        ToggleButton:
+            state: 'down' if app.relays1[6] else 'normal'
+            on_state: app.state_change(0, 6, self.state)
+        ToggleButton:
+            state: 'down' if app.relays1[14] else 'normal'
+            on_state: app.state_change(0, 14, self.state)
+        ToggleButton:
+            state: 'down' if app.relays2[6] else 'normal'
+            on_state: app.state_change(1, 6, self.state)
+    BoxLayout:
+        spacing: 10
+        padding: 5
+        Label:
+            text: '4'
+        ToggleButton:
+            state: 'down' if app.relays1[3] else 'normal'
+            on_state: app.state_change(0, 3, self.state)
+        ToggleButton:
+            state: 'down' if app.relays1[11] else 'normal'
+            on_state: app.state_change(0, 11, self.state)
+        ToggleButton:
+            state: 'down' if app.relays2[3] else 'normal'
+            on_state: app.state_change(1, 3, self.state)
+        ToggleButton:
+            state: 'down' if app.relays1[7] else 'normal'
+            on_state: app.state_change(0, 7, self.state)
+        ToggleButton:
+            state: 'down' if app.relays1[15] else 'normal'
+            on_state: app.state_change(0, 15, self.state)
+        ToggleButton:
+            state: 'down' if app.relays2[7] else 'normal'
+            on_state: app.state_change(1, 7, self.state)
