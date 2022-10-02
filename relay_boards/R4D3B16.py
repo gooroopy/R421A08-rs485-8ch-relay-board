@@ -179,16 +179,19 @@ class R4D3B16(object):
             delay                       # Delay 0x00..0xFF
         ]
 
-        # Send command
-        self._modbus.send(tx_data)
+        try:
+            # Send command
+            self._modbus.send(tx_data)
 
-        # Wait for response with timeout
-        rx_frame = self._modbus.receive(RX_LEN_CONTROL_COMMAND)
+            # Wait for response with timeout
+            rx_frame = self._modbus.receive(RX_LEN_CONTROL_COMMAND)
 
-        # Check response from relay
-        if not rx_frame or len(rx_frame) != RX_LEN_CONTROL_COMMAND:
+            # Check response from relay
+            if not rx_frame or len(rx_frame) != RX_LEN_CONTROL_COMMAND:
+                return False
+        except Exception as e:
+            print(e)
             return False
-
         return True
 
     def _read_relay_status(self, relay):
